@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-node",
+  "version": "1.0.0",
+  "description": "Srikanth portfolio website using Node.js and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
