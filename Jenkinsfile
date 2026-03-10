@@ -22,10 +22,26 @@ pipeline {
             }
         }
 
-        stage('Run Application Test') {
+        stage('Stop Old Application') {
             steps {
-                sh 'node server.js &'
-                sleep 5
+                sh '''
+                    pkill -f "node server.js" || true
+                '''
+            }
+        }
+
+        stage('Run Application') {
+            steps {
+                sh '''
+                    nohup node server.js > app.log 2>&1 &
+                '''
+            }
+        }
+
+        stage('Verify Application') {
+            steps {
+                sh 'sleep 5'
+                sh 'netstat -tulnp | grep 3000 || true'
             }
         }
 
