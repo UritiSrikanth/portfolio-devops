@@ -16,8 +16,8 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
-  # Agent VM image name
-  vmImageName: 'PersonalAgentMachine'
+pool:
+  name: 'PersonalAgentMachine'
 
 stages:
 - stage: Build
