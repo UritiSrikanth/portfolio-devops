@@ -46,11 +46,15 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: latest
 
-    - task: AzureWebAppContainer@1
-      displayName: Deploy Container to Azure Web App
+    - task: AzureRmWebAppDeployment@5
       inputs:
+        ConnectionType: 'AzureRM'
         azureSubscription: 'PortfolioMapping'
-        appName: 'PersonalPortfolio'
-        containers: '$(containerRegistry)/$(imageRepository):$(tag)'
-        appSettings: |
-          -WEBSITES_PORT 3000
+        appType: 'webAppContainer'
+        WebAppName: 'PersonalPortfolio'
+        DockerNamespace: '$(containerRegistry)'
+        DockerRepository: '$(imageRepository)'
+        DockerImageTag: '$(tag)'
+        StartupCommand: 'node server.js'
+
+
