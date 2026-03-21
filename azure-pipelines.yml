@@ -20,7 +20,7 @@ stages:
     pool:
       name: 'PersonalAgentMachine'
       demands:
-      - Agent.Name -equals PersonalAgentMachine
+      - Agent.Name -equals MyPortfolio
 
     steps:
     - checkout: self
