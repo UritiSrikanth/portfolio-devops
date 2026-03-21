@@ -50,3 +50,5 @@ stages:
         azureSubscription: 'PortfolioMapping'
         appName: 'PersonalPortfolio'
         containers: 'myportfolio.azurecr.io/uritisrikanthportfoliodevops:latest'
+        appSettings: |
+          -WEBSITES_PORT 3000
