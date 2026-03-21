@@ -45,3 +45,8 @@ stages:
         tags: |
           $(tag)
           latest
+    - task: AzureWebAppContainer@1
+      inputs:
+        azureSubscription: 'PortfolioMapping'
+        appName: 'PersonalPortfolio'
+        containers: 'myportfolio.azurecr.io/uritisrikanthportfoliodevops:latest'
