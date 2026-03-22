@@ -4,6 +4,9 @@ trigger:
 resources:
 - repo: self
 
+pool:
+  name: 'PersonalAgentMachine'
+
 variables:
   dockerRegistryServiceConnection: '006b5a95-c72f-40a9-ad14-14a99554fb41'
   imageRepository: 'uritisrikanthportfoliodevops'
@@ -17,10 +20,6 @@ stages:
   jobs:
   - job: BuildAndPush
     displayName: Build and Push Docker Image
-    pool:
-      name: 'PersonalAgentMachine'
-      demands:
-      - Agent.Name -equals MyPortfolio
 
     steps:
     - checkout: self
